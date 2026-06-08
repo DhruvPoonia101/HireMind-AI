@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 function Hero() {
   return (
@@ -30,9 +31,25 @@ function Hero() {
         transition={{ delay: 0.8 }}
         className="mt-10 flex flex-wrap justify-center gap-4"
       >
-        <button className="px-8 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 hover:scale-105 transition-all duration-300">
+        <Link
+          to="/login"
+          className="
+  px-8
+  py-3
+  rounded-xl
+  bg-gradient-to-r
+  from-purple-600
+  to-blue-600
+  text-white
+  font-medium
+  transition-all
+  duration-300
+  hover:scale-105
+  hover:shadow-[0_0_25px_rgba(147,51,234,0.5)]
+  "
+        >
           Get Started
-        </button>
+        </Link>
 
         <button className="px-8 py-3 rounded-xl border border-gray-700 hover:bg-white hover:text-black transition-all duration-300">
           Watch Demo

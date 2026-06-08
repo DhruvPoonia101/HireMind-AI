@@ -27,10 +27,17 @@ const registerUser = async (req, res) => {
             password: hashedPassword,
         });
 
+        const token = generateToken(user._id);
+
         res.status(201).json({
             success: true,
             message: "User registered successfully",
-            user,
+            token,
+            user: {
+                id: user._id,
+                name: user.name,
+                email: user.email,
+            },
         });
     } catch (error) {
         res.status(500).json({
@@ -100,7 +107,7 @@ const getProfile = async (req, res) => {
 };
 
 module.exports = {
-  registerUser,
-  loginUser,
-  getProfile,
+    registerUser,
+    loginUser,
+    getProfile,
 };

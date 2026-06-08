@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 function Navbar() {
     return (
@@ -44,9 +45,25 @@ function Navbar() {
                     </div>
 
                     {/* CTA Button */}
-                    <button className="px-5 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 hover:scale-105 transition-all duration-300">
+                    <Link
+                        to="/login"
+                        className="
+  px-6
+  py-3
+  rounded-xl
+  bg-gradient-to-r
+  from-purple-600
+  to-blue-600
+  text-white
+  font-medium
+  transition-all
+  duration-300
+  hover:scale-105
+  hover:shadow-[0_0_25px_rgba(147,51,234,0.5)]
+  "
+                    >
                         Get Started
-                    </button>
+                    </Link>
 
                 </div>
             </div>
