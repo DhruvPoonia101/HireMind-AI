@@ -2,9 +2,10 @@ import { Upload } from "lucide-react";
 import { useState } from "react";
 import { uploadResume } from "../../services/resumeService";
 
-function ResumeUpload() {
+function ResumeUpload({ setAnalysis }) {
   const [fileName, setFileName] = useState("");
   const [uploading, setUploading] = useState(false);
+
 
   const handleFileChange = async (e) => {
     const file = e.target.files[0];
@@ -16,7 +17,8 @@ function ResumeUpload() {
     try {
       const data = await uploadResume(file);
 
-      setFileName(data.file);
+      setAnalysis(data.analysis);
+      setFileName(file.name);
 
       alert("Resume Uploaded ✅");
     } catch (error) {
@@ -103,6 +105,7 @@ function ResumeUpload() {
         {fileName && (
           <p className="text-green-400 mt-4 break-all">
             Uploaded: {fileName}
+
           </p>
         )}
       </div>
