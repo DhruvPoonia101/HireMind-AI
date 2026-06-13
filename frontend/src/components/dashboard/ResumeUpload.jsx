@@ -2,7 +2,10 @@ import { Upload } from "lucide-react";
 import { useState } from "react";
 import { uploadResume } from "../../services/resumeService";
 
-function ResumeUpload({ setAnalysis }) {
+function ResumeUpload({
+  setAnalysis,
+  setRefreshHistory,
+}) {
   const [fileName, setFileName] = useState("");
   const [uploading, setUploading] = useState(false);
 
@@ -18,6 +21,7 @@ function ResumeUpload({ setAnalysis }) {
       const data = await uploadResume(file);
 
       setAnalysis(data.analysis);
+      setRefreshHistory((prev) => prev + 1);
       setFileName(file.name);
 
       alert("Resume Uploaded ✅");

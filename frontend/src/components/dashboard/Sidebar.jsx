@@ -6,7 +6,7 @@ import {
   LogOut,
 } from "lucide-react";
 
-function Sidebar() {
+function Sidebar({ activeTab, setActiveTab }) {
   return (
     <div
       className="
@@ -35,22 +35,58 @@ function Sidebar() {
       {/* Menu */}
       <div className="space-y-3">
 
-        <button className="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-purple-500/20 text-purple-300">
+        <button
+  onClick={() => setActiveTab("overview")}
+  className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition
+    ${
+      activeTab === "overview"
+        ? "bg-purple-500/20 text-purple-300"
+        : "hover:bg-white/5"
+    }
+  `}
+>
           <LayoutDashboard size={20} />
           Overview
         </button>
 
-        <button className="w-full flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5 transition">
+        <button
+  onClick={() => setActiveTab("resume")}
+  className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition
+    ${
+      activeTab === "resume"
+        ? "bg-purple-500/20 text-purple-300"
+        : "hover:bg-white/5"
+    }
+  `}
+>
           <FileText size={20} />
           Resume Analyzer
         </button>
 
-        <button className="w-full flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5 transition">
+        <button
+  onClick={() => setActiveTab("roadmap")}
+  className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition
+    ${
+      activeTab === "roadmap"
+        ? "bg-purple-500/20 text-purple-300"
+        : "hover:bg-white/5"
+    }
+  `}
+>
           <Brain size={20} />
           DSA Roadmap
         </button>
 
-        <button className="w-full flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5 transition">
+        <button
+  onClick={() => setActiveTab("interview")}
+  className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition
+    ${
+      activeTab === "interview"
+        ? "bg-purple-500/20 text-purple-300"
+        : "hover:bg-white/5"
+    }
+  `}
+>
           <MessageSquare size={20} />
           Interview AI
         </button>
